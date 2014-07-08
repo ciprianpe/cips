@@ -1,0 +1,24 @@
+#comm{margin:auto; width:70%; overflow:auto; padding:15px; border-radius: 20px;
+background: rgba(247,254,246,1);
+background: -moz-linear-gradient(left, rgba(247,254,246,1) 0%, rgba(197,241,202,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(247,254,246,1)), color-stop(100%, rgba(197,241,202,1)));
+background: -webkit-linear-gradient(left, rgba(247,254,246,1) 0%, rgba(197,241,202,1) 100%);
+background: -o-linear-gradient(left, rgba(247,254,246,1) 0%, rgba(197,241,202,1) 100%);
+background: -ms-linear-gradient(left, rgba(247,254,246,1) 0%, rgba(197,241,202,1) 100%);
+background: linear-gradient(to right, rgba(247,254,246,1) 0%, rgba(197,241,202,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7fef6', endColorstr='#c5f1ca', GradientType=1 );
+}
+#formular{margin-left:auto; margin-right:auto; margin-top:15px; width:50%;}
+
+
+
+.police {float:right;  width:40%;}
+.police .officer {margin-left:auto; margin-right:auto;}
+.police p {font-size:25px; font-family:Cursive;}
+
+
+@media all and (max-width: 480px) and (min-width: 0px) {
+
+.police {display:none;}
+
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.example"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <icon src="mini.png" gap:platform="android"/>
+    <gap:splash src="splash.png" gap:platform="android"/>
+
+
+    <name>Informatii Auto</name>
+
+    <description>
+        Site web pentru informatii auto!
+    </description>
+
+    <author>
+        Petre Ciprian
+    </author>
+
+</widget>

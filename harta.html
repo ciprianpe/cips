@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Informatii Auto</title>
+  <link rel="shortcut icon" href="img/mini.png" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="js/gmaps.js"></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/examples.css" />
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/justified-nav.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+ <script type="text/javascript">
+    var map;
+    $(document).ready(function(){
+      map = new GMaps({
+        el: '#map',
+        lat: 45.8667,
+        lng: 25.3000
+        
+
+      });
+      $('#geocoding_form').submit(function(e){
+        e.preventDefault();
+        GMaps.geocode({
+          address: $('#address').val().trim(),
+          callback: function(results, status){
+            if(status=='OK'){
+              var latlng = results[0].geometry.location;
+              map.setCenter(latlng.lat(), latlng.lng());
+              map.addMarker({
+                lat: latlng.lat(),
+                lng: latlng.lng()
+              });
+             map.drawRoute({
+        origin: [map.markers[0].getPosition().lat(), map.markers[0].getPosition().lng()],
+        destination: [map.markers[map.markers.length-1].getPosition().lat(), map.markers[map.markers.length-1].getPosition().lng()],
+        travelMode: 'driving',
+        strokeColor: '#131540',
+        strokeOpacity: 0.6,
+        strokeWeight: 6
+      });
+            }
+          }
+        });
+
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="logo"><img src="img/mini.png" /></div>
+      <div class="masthead">
+        <h3 class="text-muted">Informatii Auto</h3>
+        <ul class="nav nav-justified">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="infoauto.php">Stiri Trafic</a></li>
+          <li><a href="harta.html">Harta</a></li>
+          <li><a href="vreme.html">Vreme</a></li>
+          <li><a href="soferi.php">Noutati de la soferi</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+ </div>
+
+  <h1>Harta Romaniei</h1>
+  <div class="row">
+    <div class="span11">
+      <form method="post" id="geocoding_form">
+        <label for="address">Cauta Locatie:</label>
+        <div class="input">
+
+          <input type="text" id="address" name="address" />
+          <input type="submit" class="btn" value="Cauta" />
+          
+
+        </div>
+      </form>
+      <div id="map"></div>
+    </div>
+    
+  </div>
+<div id="footer"><p>Copyright (C) 2014 by Petre Ciprian<p></div>
+
+</body>
+</html>
